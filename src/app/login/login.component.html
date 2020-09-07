@@ -1,0 +1,33 @@
+<div class="out">
+
+    <h4>Login</h4>
+
+    <span *ngIf="cred" class="text-danger">Incorrect username or password</span>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+
+<div class="form-input" >
+
+    <input type="text"  placeholder="Email" formControlName="email" [class.is-invalid]="loginForm.get('email').invalid && loginForm.get('email').touched">
+<div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+<small class="text-danger">Email is invalid</small>
+</div>
+</div>
+<div class="form-input">
+
+    <input type="password" placeholder="password" formControlName="password">
+    <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+        <small class="text-danger">Password must be atleast 8 characters</small>
+        </div>
+</div>
+
+<div class="form-input">
+
+    <span>Forgot Password?</span> <button [disabled]="loginForm.invalid" type="submit">Login</button>
+    </div>
+
+</form>
+
+
+
+
+      </div>
